@@ -15,11 +15,13 @@ module.exports = {
       .command('make:component [name]')
       .description('scaffold a new component')
       .action(function (name) {
-        if (!self.valid(name)) {
+        self.validate(name);
+
+        if (!self.isValid) {
           process.exit(1);
         }
 
-        self.run(name);
+        self.execute(name);
       })
       .on('--help', function () {
         console.log('  Examples:');
@@ -30,16 +32,18 @@ module.exports = {
       });
   },
 
-  valid: function (name) {
+  validate: function (name) {
+    var isValid = true;
+
     if (!name) {
       console.log(chalk.red('No name specified!'));
-      return false;
+      isValid = false;
     }
 
-    return true;
+    this.isValid = isValid;
   },
 
-  run: function (name) {
+  execute: function (name) {
     console.log(chalk.green('Creating component "' + name + '"...'));
 
     this.path = 'src/app/components/' + name;
