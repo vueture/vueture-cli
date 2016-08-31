@@ -1,0 +1,26 @@
+{
+  "name": "lucevi-cli",
+  "version": "0.0.0",
+  "description": "Command line tool for Lucevi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucevi/lucevi-cli.git"
+  },
+  "keywords": [
+    "lucevi",
+    "vue",
+    "cli",
+    "javascript",
+    "frontend"
+  ],
+  "author": "Vivid Websolutions <info@vivid-websolutions.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucevi/lucevi-cli/issues"
+  },
+  "homepage": "https://github.com/lucevi/lucevi-cli#readme"
+}
