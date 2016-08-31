@@ -2,7 +2,10 @@
   "name": "lucevi-cli",
   "version": "0.0.0",
   "description": "Command line tool for Lucevi",
-  "main": "index.js",
+  "main": "./bin/lucevi",
+  "bin": {
+    "lucevi": "./bin/lucevi"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +24,17 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lucevi/lucevi-cli/issues"
+  },
+  "dependencies": {
+    "async": "^2.0.1",
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "consolidate": "^0.14.1",
+    "handlebars": "^4.0.5",
+    "metalsmith": "^2.2.0",
+    "metalsmith-rename": "^1.0.0",
+    "path": "^0.12.7",
+    "shelljs": "^0.7.4"
   },
   "homepage": "https://github.com/lucevi/lucevi-cli#readme"
 }
