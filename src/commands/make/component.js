@@ -1,67 +1,43 @@
-var program = require('commander');
-var chalk = require('chalk');
+var commander = require('commander');
+var logging = require('./../../../lib/logging');
 var helpers = require('./../../../lib/helpers');
 
-module.exports = {
-  load: function () {
-    program
-      .command('make:component [name]')
-      .description('scaffold a new component')
-      .option('-s, --split', 'split the Vue file into separate files')
-      .action(function (name, options) {
-        this.action(name, options);
-      }.bind(this))
-      .on('--help', function () {
-        this.help();
-      }.bind(this));
-  },
+commander
+  .command('make:component [name]')
+  .description('scaffold a new component')
+  .option('-s, --split', 'split the .vue-file into separate files')
+  .action(function (name, options) {
+    program.action(name, options);
+  })
+  .on('--help', function () {
+    program.help();
+  });
 
+var program = {
   action: function (name, options) {
-    this.split = options ? options.split : false;
-    this.validate(name);
-
-    if (!this.isValid) {
+    if (!this.isValid(name)) {
       process.exit(1);
     }
+    logging.info('Creating component "' + name + '"...');
 
-    this.execute(name);
-  },
+    var split = options ? options.split : false;
 
-  help: function () {
-    console.log('  Examples:');
-    console.log();
-    console.log(chalk.gray('    # will scaffold a component'));
-    console.log('    $ blucify make:component panel');
-    console.log();
-  },
 
-  validate: function (name) {
-    var isValid = true;
+    var templateDirectory = split ? 'split' : 'single';
+    var input = __dirname + '/../../templates/component/' + templateDirectory;
 
-    if (!name) {
-      console.log(chalk.red('No name specified!'));
-      isValid = false;
-    }
-
-    this.isValid = isValid;
-  },
-
-  execute: function (name) {
-    console.log(chalk.green('Creating component "' + name + '"...'));
-
-    var path = 'src/app/components/';
-    var templateDirectory = this.split ? 'split' : 'single';
-
+    var output = 'src/app/components/';
     var componentPath = name.split('/');
     if (componentPath.length > 1) {
       for (var i = 0; i < componentPath.length - 1; i++) {
-        path += componentPath[i] + '/';
+        output += componentPath[i] + '/';
       }
     }
+    output = split ? output + this.filename : output;
 
     this.filename = componentPath.length > 1 ? componentPath[componentPath.length - 1] : name;
     this.name = helpers.capitalizeFirstLetter(this.filename);
-    path = this.split ? path + this.filename : path;
+
 
     var handlebars = [
       {
@@ -74,11 +50,28 @@ module.exports = {
       }
     ];
 
-
     helpers.registerHandlebars(handlebars);
-    helpers.generateDirectories(path);
-    helpers.generateFiles(__dirname + '/../../templates/component/' + templateDirectory, path, this.filename);
+    helpers.generate(input, output, this.filename);
 
-    console.log(chalk.green('Component has been created!'));
+    logging.success('Component has been created!');
   },
+  help: function () {
+    logging.normal('  Examples:');
+    logging.normal('');
+    logging.muted('    # will scaffold a new component');
+    logging.normal('    $ blucify make:component panel');
+    logging.muted('    # will scaffold a new component in a custom directory');
+    logging.normal('    $ blucify make:component button/link');
+    logging.normal('');
+  },
+  isValid: function (name) {
+    var isValid = true;
+
+    if (!name) {
+      logging.error('No name specified!');
+      isValid = false;
+    }
+
+    return isValid;
+  }
 };
