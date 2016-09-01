@@ -1,26 +1,19 @@
 var program = require('commander');
 var chalk = require('chalk');
-var path = require('path');
-var Handlebars = require('handlebars');
-var rename = require('metalsmith-rename');
-var Metalsmith = require('metalsmith');
 var helpers = require('./../../../lib/helpers');
-require('shelljs/global');
 
 module.exports = {
   load: function () {
-    var self = this;
-
     program
       .command('make:component [name]')
       .description('scaffold a new component')
       .option('-s, --split', 'split the Vue file into separate files')
       .action(function (name, options) {
-        self.action(name, options);
-      })
+        this.action(name, options);
+      }.bind(this))
       .on('--help', function () {
-        self.help();
-      });
+        this.help();
+      }.bind(this));
   },
 
   action: function (name, options) {
@@ -59,9 +52,16 @@ module.exports = {
     var path = 'src/app/components/';
     var templateDirectory = this.split ? 'split' : 'single';
 
-    path = this.split ? path + name : path;
-    this.filename = name;
-    this.name = helpers.capitalizeFirstLetter(name);
+    var componentPath = name.split('/');
+    if (componentPath.length > 1) {
+      for (var i = 0; i < componentPath.length - 1; i++) {
+        path += componentPath[i] + '/';
+      }
+    }
+
+    this.filename = componentPath.length > 1 ? componentPath[componentPath.length - 1] : name;
+    this.name = helpers.capitalizeFirstLetter(this.filename);
+    path = this.split ? path + this.filename : path;
 
     var handlebars = [
       {
@@ -74,43 +74,11 @@ module.exports = {
       }
     ];
 
-    console.log('Registering Handlebars...');
-    this.registerHandlebars(handlebars);
-    console.log('Generating directories...');
-    this.generateDirectories(path);
-    console.log('Generating files...');
-    this.generateFiles(__dirname + '/../../templates/component/' + templateDirectory, path, this.filename);
+
+    helpers.registerHandlebars(handlebars);
+    helpers.generateDirectories(path);
+    helpers.generateFiles(__dirname + '/../../templates/component/' + templateDirectory, path, this.filename);
 
     console.log(chalk.green('Component has been created!'));
   },
-
-  generateDirectories: function (path) {
-    mkdir('-p', path);
-  },
-
-  registerHandlebars: function (handlebars) {
-    handlebars.forEach(function (handlebar) {
-      Handlebars.registerHelper(handlebar.keyword, function () {
-        return handlebar.replacement;
-      });
-    });
-  },
-
-  generateFiles: function (inputDirectory, outputDirectory, outputFilename) {
-    Metalsmith(inputDirectory)
-      .use(helpers.renderTemplateFiles)
-      .use(
-        rename([
-          [/template/, outputFilename]
-        ])
-      )
-      .clean(false)
-      .source('.')
-      .destination(path.resolve(outputDirectory))
-      .build(function (err) {
-        if (err) {
-          console.log(chalk.red(err));
-        }
-      });
-  }
 };
