@@ -1,20 +1,20 @@
 {
-  "name": "lucevi-cli",
+  "name": "blucify-cli",
   "version": "0.0.0",
-  "description": "Command line tool for Lucevi",
-  "main": "./bin/lucevi",
+  "description": "Command line tool for Blucify",
+  "main": "./bin/blucify",
   "bin": {
-    "lucevi": "./bin/lucevi"
+    "blucify": "./bin/blucify"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucevi/lucevi-cli.git"
+    "url": "git+https://github.com/blucify/blucify-cli.git"
   },
   "keywords": [
-    "lucevi",
+    "blucify",
     "vue",
     "cli",
     "javascript",
@@ -23,7 +23,7 @@
   "author": "Vivid Websolutions <info@vivid-websolutions.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lucevi/lucevi-cli/issues"
+    "url": "https://github.com/blucify/blucify-cli/issues"
   },
   "dependencies": {
     "async": "^2.0.1",
@@ -38,5 +38,5 @@
     "path": "^0.12.7",
     "shelljs": "^0.7.4"
   },
-  "homepage": "https://github.com/lucevi/lucevi-cli#readme"
+  "homepage": "https://github.com/blucify/blucify-cli#readme"
 }

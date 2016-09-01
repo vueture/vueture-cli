@@ -27,7 +27,7 @@ module.exports = {
         console.log('  Examples:');
         console.log();
         console.log(chalk.gray('    # will scaffold a component'));
-        console.log('    $ lucevi make:component panel');
+        console.log('    $ blucify make:component panel');
         console.log();
       });
   },

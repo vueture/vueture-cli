@@ -13,7 +13,7 @@ module.exports = {
 
     program
       .command('new [app-name]')
-      .description('initialize a fresh Lucevi application')
+      .description('initialize a fresh Blucify application')
       .action(function (name) {
         self.validate(name);
 
@@ -26,8 +26,8 @@ module.exports = {
       .on('--help', function () {
         console.log('  Examples:');
         console.log();
-        console.log(chalk.gray('    # will initialize a fresh Lucevi application'));
-        console.log('    $ lucevi new app-name');
+        console.log(chalk.gray('    # will initialize a fresh Blucify application'));
+        console.log('    $ blucify new app-name');
         console.log();
       });
   },
@@ -52,10 +52,10 @@ module.exports = {
     var self = this;
     this.name = name;
 
-    var spinner = ora('Downloading Lucevi...');
+    var spinner = ora('Downloading Blucify...');
     spinner.start();
 
-    download('lucevi/lucevi', this.name, { clone: true }, function (err) {
+    download('blucify/blucify', this.name, { clone: true }, function (err) {
       spinner.stop();
 
       if (err) {

@@ -1,2 +1,2 @@
-# lucevi-cli
-> CLI tool for Lucevi
+# blucify-cli
+> CLI tool for Blucify
