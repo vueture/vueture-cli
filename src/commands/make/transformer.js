@@ -39,9 +39,9 @@ var program = {
     log('  Examples:');
     log();
     log('    # will scaffold a new mixin', 'muted');
-    log('    $ blucify make:transformer user');
+    log('    $ vueture make:transformer user');
     log('    # will scaffold a new transformer in a custom directory', 'muted');
-    log('    $ blucify make:transformer user/admin');
+    log('    $ vueture make:transformer user/admin');
     log();
   },
   isValid: function (name) {

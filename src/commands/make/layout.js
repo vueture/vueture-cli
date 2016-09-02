@@ -40,9 +40,9 @@ var program = {
     log('  Examples:');
     log();
     log('    # will scaffold a new layout', 'muted');
-    log('    $ blucify make:layout default');
+    log('    $ vueture make:layout default');
     log('    # will scaffold a new layout in a custom directory', 'muted');
-    log('    $ blucify make:layout default/main');
+    log('    $ vueture make:layout default/main');
     log();
   },
   isValid: function (name) {

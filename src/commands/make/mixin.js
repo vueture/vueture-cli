@@ -39,9 +39,9 @@ var program = {
     log('  Examples:');
     log();
     log('    # will scaffold a new mixin', 'muted');
-    log('    $ blucify make:mixin slot');
+    log('    $ vueture make:mixin slot');
     log('    # will scaffold a new mixin in a custom directory', 'muted');
-    log('    $ blucify make:mixin slot/main');
+    log('    $ vueture make:mixin slot/main');
     log();
   },
   isValid: function (name) {

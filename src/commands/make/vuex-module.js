@@ -40,9 +40,9 @@ var program = {
     log('  Examples:');
     log();
     log('    # will scaffold a new vuex module', 'muted');
-    log('    $ blucify make:vuex-module user');
+    log('    $ vueture make:vuex-module user');
     log('    # will scaffold a new vuex-module in a custom directory', 'muted');
-    log('    $ blucify make:vuex-module user/admin');
+    log('    $ vueture make:vuex-module user/admin');
     log();
   },
   isValid: function (name) {

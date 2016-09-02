@@ -1,20 +1,20 @@
 {
-  "name": "blucify-cli",
-  "version": "0.0.3",
-  "description": "Command line tool for Blucify",
-  "main": "./bin/blucify",
+  "name": "vueture-cli",
+  "version": "0.0.0",
+  "description": "Command line tool for Vueture",
+  "main": "./bin/vueture",
   "bin": {
-    "blucify": "./bin/blucify"
+    "vueture": "./bin/vueture"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blucify/blucify-cli.git"
+    "url": "git+https://github.com/vueture/vueture-cli.git"
   },
   "keywords": [
-    "blucify",
+    "vueture",
     "vue",
     "cli",
     "javascript",
@@ -23,7 +23,7 @@
   "author": "Vivid Websolutions <info@vivid-websolutions.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blucify/blucify-cli/issues"
+    "url": "https://github.com/vueture/vueture-cli/issues"
   },
   "dependencies": {
     "async": "^2.0.1",
@@ -39,5 +39,5 @@
     "path": "^0.12.7",
     "shelljs": "^0.7.4"
   },
-  "homepage": "https://github.com/blucify/blucify-cli#readme"
+  "homepage": "https://github.com/vueture/vueture-cli#readme"
 }

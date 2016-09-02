@@ -9,7 +9,7 @@ require('shelljs/global');
 
 commander
   .command('new [app-name]')
-  .description('initialize a fresh Blucify application')
+  .description('initialize a fresh Vueture application')
   .action(function (name) {
     program.action(name);
   })
@@ -27,10 +27,10 @@ var program = {
 
     this.name = name;
 
-    var spinner = ora('Downloading Blucify...');
+    var spinner = ora('Downloading Vueture...');
     spinner.start();
 
-    download('blucify/blucify', this.name, { clone: true }, function (err) {
+    download('vueture/vueture', this.name, { clone: true }, function (err) {
       spinner.stop();
 
       if (err) {
@@ -54,8 +54,8 @@ var program = {
   help: function () {
     log('  Examples:');
     log();
-    log('    # will initialize a fresh Blucify application', 'muted');
-    log('    $ blucify new app-name');
+    log('    # will initialize a fresh Vueture application', 'muted');
+    log('    $ vueture new app-name');
     log();
   },
   isValid: function (name) {

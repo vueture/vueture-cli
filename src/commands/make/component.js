@@ -35,9 +35,9 @@ var program = {
     log('  Examples:');
     log();
     log('    # will scaffold a new component', 'muted');
-    log('    $ blucify make:component panel');
+    log('    $ vueture make:component panel');
     log('    # will scaffold a new component in a custom directory', 'muted');
-    log('    $ blucify make:component button/link');
+    log('    $ vueture make:component button/link');
     log();
   },
   isValid: function (name) {

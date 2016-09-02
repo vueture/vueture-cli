@@ -40,9 +40,9 @@ var program = {
     log('  Examples:');
     log();
     log('    # will scaffold a new page', 'muted');
-    log('    $ blucify make:page home');
+    log('    $ vueture make:page home');
     log('    # will scaffold a new component in a custom directory', 'muted');
-    log('    $ blucify make:component home/index');
+    log('    $ vueture make:component home/index');
     log();
   },
   isValid: function (name) {
