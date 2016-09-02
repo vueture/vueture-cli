@@ -1,6 +1,6 @@
 {
   "name": "blucify-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Command line tool for Blucify",
   "main": "./bin/blucify",
   "bin": {
