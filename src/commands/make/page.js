@@ -4,8 +4,8 @@ var generator = require('./../../../lib/generator');
 var _ = require('lodash');
 
 commander
-  .command('make:component [name]')
-  .description('scaffold a new component')
+  .command('make:page [name]')
+  .description('scaffold a new page')
   .option('-s, --split', 'split the .vue-file into separate files')
   .action(function (name, options) {
     program.action(name, options);
@@ -21,6 +21,11 @@ var program = {
     }
 
     _.mergeWith(generator.config, {
+      type: 'page',
+      templateDirectory: 'page',
+      output: {
+        directory: 'src/app/pages/',
+      },
       name: name,
       isSplit: options ? options.split : false,
     }, function (objValue, srcValue) {
@@ -34,10 +39,10 @@ var program = {
   help: function () {
     log('  Examples:');
     log();
-    log('    # will scaffold a new component', 'muted');
-    log('    $ blucify make:component panel');
+    log('    # will scaffold a new page', 'muted');
+    log('    $ blucify make:page home');
     log('    # will scaffold a new component in a custom directory', 'muted');
-    log('    $ blucify make:component button/link');
+    log('    $ blucify make:component home/index');
     log();
   },
   isValid: function (name) {
