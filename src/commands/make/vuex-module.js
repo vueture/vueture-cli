@@ -22,6 +22,7 @@ var program = {
     _.mergeWith(generator.config, {
       type: 'vuex module',
       templateDirectory: 'vuex-module',
+      newDir: true,
       output: {
         directory: 'src/app/store/modules/',
       },

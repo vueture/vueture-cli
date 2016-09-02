@@ -41,7 +41,7 @@ var program = {
     log('    # will scaffold a new mixin', 'muted');
     log('    $ blucify make:transformer user');
     log('    # will scaffold a new transformer in a custom directory', 'muted');
-    log('    $ blucify make:mixin user/admin');
+    log('    $ blucify make:transformer user/admin');
     log();
   },
   isValid: function (name) {

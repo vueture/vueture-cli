@@ -20,11 +20,8 @@ $ blucify new <project-name>
 For scaffolding a component, use the following command:
 ``` bash
 $ blucify make:component <component-name>
-```
 
-##### Flags #####
-Use `-s` or `--split` if you want to use seperate files instead of a single `.vue`-file.
-``` bash
+# Use -s or --split if you want to use seperate files instead of a single .vue-file.
 $ blucify make:component <component-name> -s
 ```
 
@@ -32,22 +29,34 @@ $ blucify make:component <component-name> -s
 For scaffolding a layout, use the following command:
 ``` bash
 $ blucify make:layout <layout-name>
+
+# Use -s or --split if you want to use seperate files instead of a single .vue-file.
+$ blucify make:layout <layout-name> -s
 ```
 
-##### Flags #####
-Use `-s` or `--split` if you want to use seperate files instead of a single `.vue`-file.
+#### Mixin ####
+For scaffolding a mixin, use the following command:
 ``` bash
-$ blucify make:layout <layout-name> -s
+$ blucify make:mixin <mixin-name>
 ```
 
 #### Page ####
 For scaffolding a page, use the following command:
 ``` bash
 $ blucify make:page <page-name>
+
+# Use -s or --split if you want to use seperate files instead of a single .vue-file.
+$ blucify make:page <page-name> -s
 ```
 
-##### Flags #####
-Use `-s` or `--split` if you want to use seperate files instead of a single `.vue`-file.
+#### Transformer ####
+For scaffolding a transformer, use the following command:
 ``` bash
-$ blucify make:page <page-name> -s
+$ blucify make:transformer <transformer-name>
+```
+
+#### Vuex Module ####
+For scaffolding a Vuex module, use the following command:
+``` bash
+$ blucify make:vuex-module <module-name>
 ```
