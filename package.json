@@ -32,6 +32,7 @@
     "consolidate": "^0.14.1",
     "download-git-repo": "^0.1.2",
     "handlebars": "^4.0.5",
+    "lodash": "^4.15.0",
     "metalsmith": "^2.2.0",
     "metalsmith-rename": "^1.0.0",
     "ora": "^0.3.0",
