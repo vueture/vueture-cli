@@ -1,55 +1,30 @@
-var program = require('commander');
+var commander = require('commander');
 var download = require('download-git-repo');
-var chalk = require('chalk');
 var exists = require('fs').existsSync;
 var path = require('path');
 var rename = require('metalsmith-rename');
 var ora = require('ora');
+var log = require('./../../lib/logging');
 require('shelljs/global');
 
-module.exports = {
-  load: function () {
-    var self = this;
+commander
+  .command('new [app-name]')
+  .description('initialize a fresh Blucify application')
+  .action(function (name) {
+    program.action(name);
+  })
+  .on('--help', function () {
+    program.help();
+  });
 
-    program
-      .command('new [app-name]')
-      .description('initialize a fresh Blucify application')
-      .action(function (name) {
-        self.validate(name);
-
-        if(!self.isValid) {
-          process.exit(1);
-        }
-
-        self.execute(name);
-      })
-      .on('--help', function () {
-        console.log('  Examples:');
-        console.log();
-        console.log(chalk.gray('    # will initialize a fresh Blucify application'));
-        console.log('    $ blucify new app-name');
-        console.log();
-      });
-  },
-  validate: function (name) {
-    var isValid = true;
-
-    if (!name) {
-      console.log(chalk.red('No name specified!'));
-      isValid = false;
+var program = {
+  action: function (name) {
+    if (!this.isValid(name)) {
+      process.exit(1);
     }
 
-    if(exists(path.resolve(name))) {
-      console.log(chalk.red('Target directory already exists!'));
-      isValid = false;
-    }
+    log('Crafting the application...', 'info');
 
-    this.isValid = isValid;
-  },
-  execute: function (name) {
-    console.log(chalk.green('Crafting the application...'));
-
-    var self = this;
     this.name = name;
 
     var spinner = ora('Downloading Blucify...');
@@ -59,17 +34,43 @@ module.exports = {
       spinner.stop();
 
       if (err) {
-        console.log(chalk.red('Whoops! Something went wrong!'));
-        console.log(chalk.red(err));
+        log('Whoops! Something went wrong!', 'error');
+        log(err, 'error');
         process.exit(1);
       }
 
-      cd(self.name);
+      log('Application created!', 'success');
+      this.complete();
+    }.bind(this))
+  },
+  complete: function () {
+    log();
+    log('To get started:');
+    log();
+    log('  $ cd ' + this.name);
+    log('  $ npm install');
+    log('  $ npm run dev');
+  },
+  help: function () {
+    log('  Examples:');
+    log();
+    log('    # will initialize a fresh Blucify application', 'muted');
+    log('    $ blucify new app-name');
+    log();
+  },
+  isValid: function (name) {
+    var isValid = true;
 
-      console.log(chalk.green('Installing node modules...'));
-      exec('npm install');
+    if (!name) {
+      log('No name specified!', 'error');
+      isValid = false;
+    }
 
-      console.log(chalk.green('Application created!'));
-    });
+    if (exists(path.resolve(name))) {
+      log('Target directory already exists!', 'error');
+      isValid = false;
+    }
+
+    return isValid;
   },
 };

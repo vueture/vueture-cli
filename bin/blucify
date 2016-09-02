@@ -6,6 +6,6 @@ program
   .version(require('./../package.json').version);
 
 require('./../src/commands/make/component');
-require('./../src/commands/new').load();
+require('./../src/commands/new');
 
 program.parse(process.argv);
