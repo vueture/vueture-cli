@@ -1,4 +1,3 @@
-<style lang="sass"></style>
 <template>
   <div>
     {{ name }} layout is ready for use!
