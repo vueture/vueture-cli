@@ -7,7 +7,8 @@
     "vueture": "./bin/vueture"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup --config build/rollup.config.js",
+    "dev": "rollup --config build/rollup.config.js --watch"
   },
   "repository": {
     "type": "git",
@@ -35,9 +36,24 @@
     "lodash": "^4.15.0",
     "metalsmith": "^2.2.0",
     "metalsmith-rename": "^1.0.0",
+    "metalsmith-renamer": "^0.3.0",
     "ora": "^0.3.0",
     "path": "^0.12.7",
     "shelljs": "^0.7.4"
   },
-  "homepage": "https://github.com/vueture/vueture-cli#readme"
+  "homepage": "https://github.com/vueture/vueture-cli#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "rollup": "^0.49.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-uglify": "^2.0.1"
+  }
 }

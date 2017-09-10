@@ -1,0 +1,3 @@
+<style src="./{{ filename }}.sass" type="sass"></style>
+<template src="./{{ filename }}.html"></template>
+<script src="./{{ filename }}.js"></script>

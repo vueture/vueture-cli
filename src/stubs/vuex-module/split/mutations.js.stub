@@ -1,0 +1,9 @@
+/* ============
+ * Mutations for the {{ filename }} module
+ * ============
+ *
+ * The mutations that are available on the
+ * {{ filename }} module.
+ */
+
+export default {};

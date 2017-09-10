@@ -1,0 +1,9 @@
+/* ============
+ * Mutation types for the {{ filename }} module
+ * ============
+ *
+ * The mutation types that are available
+ * on the {{ filename }} module.
+ */
+
+export default {};

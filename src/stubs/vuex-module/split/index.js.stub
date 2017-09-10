@@ -1,0 +1,36 @@
+/* ============
+ * {{ name }} Module
+ * ============
+ */
+
+import actions from './actions';
+import getters from './getters';
+import mutations from './mutations';
+import state from './state';
+
+export default {
+  /**
+   * Use namespacing for this Vuex module.
+   */
+  namespaced: true,
+
+  /**
+   * The actions this Vuex module can use.
+   */
+  actions,
+
+  /**
+   * The getters this Vuex module can use.
+   */
+  getters,
+
+  /**
+   * The mutations this Vuex module can use.
+   */
+  mutations,
+
+  /**
+   * The state of this Vuex module.
+   */
+  state,
+};

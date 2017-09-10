@@ -1,0 +1,13 @@
+/* ============
+ * {{ name }} Component
+ * ============
+ *
+ * The {{ name }} Component
+ */
+
+export default {
+  /**
+   * The name of the component.
+   */
+  name: '{{ filename }}',
+};

@@ -1,0 +1,8 @@
+/* ============
+ * State of the {{ filename }} module
+ * ============
+ *
+ * The initial state of the {{ filename }} module.
+ */
+
+export default {};

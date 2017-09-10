@@ -1,0 +1,9 @@
+/* ============
+ * Actions for the {{ filename }} module
+ * ============
+ *
+ * The actions that are available on the
+ * {{ filename }} module.
+ */
+
+export default {};

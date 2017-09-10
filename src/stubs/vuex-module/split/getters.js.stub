@@ -1,0 +1,9 @@
+/* ============
+ * Getters for the {{ filename }} module
+ * ============
+ *
+ * The getters that are available on the
+ * {{ filename }} module.
+ */
+
+export default {};

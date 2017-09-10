@@ -1,0 +1,13 @@
+/* ============
+ * {{ name }} Page
+ * ============
+ *
+ * The {{ name }} Page
+ */
+
+export default {
+  /**
+   * The name of the page.
+   */
+  name: '{{ filename }}',
+};

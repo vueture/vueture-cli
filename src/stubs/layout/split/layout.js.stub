@@ -1,0 +1,13 @@
+/* ============
+ * {{ name }} Layout
+ * ============
+ *
+ * The {{ name }} Layout
+ */
+
+export default {
+  /**
+   * The name of the layout.
+   */
+  name: '{{ filename }}',
+};

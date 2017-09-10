@@ -1,0 +1,21 @@
+<style{{#if cssPreprocessor}} lang="{{ cssPreprocessor }}"{{/if}}></style>
+<template>
+  <div>
+    {{ name }} layout is ready for use!
+  </div>
+</template>
+<script>
+  /* ============
+   * {{ name }} Layout
+   * ============
+   *
+   * The {{ name }} Layout
+   */
+
+  export default {
+    /**
+     * The name of the layout.
+     */
+    name: '{{ filename }}',
+  };
+</script>

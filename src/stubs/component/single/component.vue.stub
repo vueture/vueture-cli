@@ -1,0 +1,21 @@
+<style{{#if cssPreprocessor}} lang="{{ cssPreprocessor }}"{{/if}}></style>
+<template>
+  <div>
+    {{ name }} component is ready for use!
+  </div>
+</template>
+<script>
+  /* ============
+   * {{ name }} Component
+   * ============
+   *
+   * The {{ name }} Component
+   */
+
+  export default {
+    /**
+     * The name of the component.
+     */
+    name: '{{ filename }}',
+  };
+</script>
